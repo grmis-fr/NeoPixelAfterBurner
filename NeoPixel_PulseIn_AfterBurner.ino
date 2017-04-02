@@ -5,7 +5,7 @@
 #include <Adafruit_NeoPixel.h>
 #define PIN 6 //NeoPixel strip data pin
 #define PWM_PIN 5 // Connected to the throttle channel
-#define NUM_LEDS 8
+#define NUM_LEDS 35
 
 #define BRIGHTNESS 255
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
@@ -32,7 +32,7 @@ void setup() {
     int r, g, b;
     AB_color(c, r, g, b);
     strip.setPixelColor(i % NUM_LEDS, r, g, b); strip.show();
-    delay(60);
+    delay(15);
     strip.setPixelColor(i % NUM_LEDS, 0, 0, 0);
   }
   strip.show();
@@ -88,7 +88,7 @@ void loop() {
     int c = map(ch, pwm_min, pwm_max, 0, 255);
     set_color(c);
   }
-  delay(75);
+  delay(40);
 }
 //----------------------------------------------------------
 
